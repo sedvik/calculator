@@ -51,10 +51,7 @@ function display(num) {
     document.querySelector('#display p').textContent = num;
 }
 
-// resetState function - resets the initial state of the calculator
-function resetState() {
 
-}
 
 /* Event Handler Functions */
 function handleNumberClick(e) {
@@ -107,6 +104,15 @@ function handleEqualClick() {
     operator = '';
 }
 
+// resetState function - resets the initial state of the calculator
+function resetState() {
+    num1 = '';
+    num2 = '';
+    operator = '';
+    display('');
+    calculatedResultDisplayed = false;
+}
+
 // Add Event Listeners to buttons
 const numButtons = document.querySelectorAll('.number');
 numButtons.forEach(button => {
@@ -120,3 +126,6 @@ operationButtons.forEach(button => {
 
 const equalButton = document.querySelector('#equal');
 equalButton.addEventListener('click', handleEqualClick);
+
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', resetState);
