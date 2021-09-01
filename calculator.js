@@ -17,7 +17,7 @@ function divide(a, b) {
 
 // operate function - takes an operator and 2 numbers and calls the corresponding basic arithmetic operation on the 2 numbers
 function operate(operator, a, b) {
-    let operation; // Stores the appropriate arithmetic operations
+    let operation;
     switch(operator) {
         case '+':
             operation = add;
