@@ -171,6 +171,11 @@ function resetState() {
     unHighlightOperators();
 }
 
+// blurElement function - unfocuses the currently selected element
+function blurElement(e) {
+    e.target.blur();
+}
+
 // Add click Event Listeners to buttons
 const numButtons = document.querySelectorAll('.number');
 numButtons.forEach(button => {
@@ -204,3 +209,7 @@ window.addEventListener('keydown', function(e) {
         document.querySelector(`button[value="${key}"]`).click();
     }
 });
+
+// Unfocus any clicked buttons to prevent undesired behavior when mixing keyboard and button input
+const calcContainer = document.querySelector('#calc-container');
+calcContainer.addEventListener('click', blurElement);
