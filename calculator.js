@@ -185,3 +185,14 @@ undoButton.addEventListener('click', handleUndo);
 
 const decimalButton = document.querySelector('#decimal');
 decimalButton.addEventListener('click', addDecimalPlace);
+
+// Add keyboard event listeners
+window.addEventListener('keydown', function(e) {
+    const key = e.key;
+    const validKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Delete", "Backspace", "Enter", "/", "*", "-", "+", "."];
+
+    // if key is valid, click corresponding button
+    if (validKeys.includes(key)) {
+        document.querySelector(`button[value="${key}"]`).click();
+    }
+});
