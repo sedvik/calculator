@@ -106,8 +106,8 @@ function handleEqualClick() {
 
 // handloUndo - removes the last character from num2
 function handleUndo() {
-    // Exit from function if a calculated result is currently being displayed
-    if (calculatedResultDisplayed) {
+    // Exit from function if a calculated result is currently being displayed or if num2 has nothing stored
+    if (calculatedResultDisplayed || num2 === '') {
         return;
     }
 
