@@ -48,7 +48,15 @@ function operate(operator, a, b) {
 
 // display function - displays the provided number in the calculator display
 function display(num) {
-    document.querySelector('#display p').textContent = num;
+    const displayTextField = document.querySelector('#display p');
+    num = num.toString();
+    
+    // If number of digits is greater than or equal to 10, display it using scientific notation
+    if (num.length >= 10) {
+        displayTextField.textContent = Number(num).toExponential(4);
+    } else {
+        displayTextField.textContent = num;
+    }
 }
 
 // highlightOperator function - Adds the .highlight class to an operator button after it has been clicked
