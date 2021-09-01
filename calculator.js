@@ -80,9 +80,11 @@ function handleOperationClick(e) {
     // Update the value of the global operator value
     operator = e.target.value;
 
-    // Store the current value of num2 in num1 and reset num2
-    num1 = num2;
-    num2 = '';
+    // Store the current value of num2 in num1 and reset num2 if num2 has a current value
+    if (num2 !== '') {
+        num1 = num2;
+        num2 = '';
+    }
 }
 
 function handleEqualClick() {
