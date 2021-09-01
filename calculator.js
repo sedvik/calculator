@@ -51,6 +51,23 @@ function display(num) {
     document.querySelector('#display p').textContent = num;
 }
 
+// highlightOperator function - Adds the .highlight class to an operator button after it has been clicked
+function highlightOperator(operatorButton) {
+    // Unhighlight any currently selected operator
+    unHighlightOperators();
+
+    // Highlight the desired operator
+    operatorButton.classList.add('highlight');
+}
+
+// unHighlightOperators function - removes the .highlight class from all operator buttons.
+function unHighlightOperators() {
+    const operatorButtons = document.querySelectorAll('.operator');
+    operatorButtons.forEach(button => {
+        button.classList.remove('highlight');
+    })
+}
+
 /* Event Handler Functions */
 function handleNumberClick(e) {
     // Reset num2 if a calculated result is currently being displayed
@@ -61,6 +78,9 @@ function handleNumberClick(e) {
     
     // Append clicked number (in string format) to num2
     num2 += e.target.value;
+
+    // Unhighlight any selected operator buttons
+    unHighlightOperators();
 
     // Display the new value
     display(num2);
@@ -77,6 +97,9 @@ function handleOperationClick(e) {
 
     // Update the value of the global operator value
     operator = e.target.value;
+
+    // Highlight the appropriate operator button
+    highlightOperator(e.target);
 
     // Store the current value of num2 in num1 and reset num2 if num2 has a current value
     if (num2 !== '') {
@@ -125,6 +148,7 @@ function addDecimalPlace() {
         return;
     }
 
+    // Add a decimal place and display the number
     num2 += '.';
     display(num2);
 }
@@ -136,9 +160,10 @@ function resetState() {
     operator = '';
     display('');
     calculatedResultDisplayed = false;
+    unHighlightOperators();
 }
 
-// Add Event Listeners to buttons
+// Add click Event Listeners to buttons
 const numButtons = document.querySelectorAll('.number');
 numButtons.forEach(button => {
     button.addEventListener('click', handleNumberClick);

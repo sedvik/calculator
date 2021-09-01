@@ -107,3 +107,7 @@ button[value="9"] {
 #equal {
     grid-area: equal;
 }
+
+.highlight {
+    background-color: rgb(182, 179, 179);
+}
