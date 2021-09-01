@@ -4,7 +4,7 @@ let num2 = '';
 let operator = '';
 let calculatedResultDisplayed = false;
 
-// Functions for basic arithmetic operations
+/* Functions for basic arithmetic operations */
 function add(a, b) {
     return a + b;
 }
@@ -50,8 +50,6 @@ function operate(operator, a, b) {
 function display(num) {
     document.querySelector('#display p').textContent = num;
 }
-
-
 
 /* Event Handler Functions */
 function handleNumberClick(e) {
@@ -106,6 +104,20 @@ function handleEqualClick() {
     operator = '';
 }
 
+// handloUndo - removes the last character from num2
+function handleUndo() {
+    // Exit from function if a calculated result is currently being displayed
+    if (calculatedResultDisplayed) {
+        return;
+    }
+
+    // Remove 1 character from end of num2
+    num2 = num2.substring(0, num2.length - 1);
+
+    // Display the new number
+    display(num2);
+}
+
 // resetState function - resets the initial state of the calculator
 function resetState() {
     num1 = '';
@@ -131,3 +143,6 @@ equalButton.addEventListener('click', handleEqualClick);
 
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', resetState);
+
+const undoButton = document.querySelector('#undo');
+undoButton.addEventListener('click', handleUndo);
