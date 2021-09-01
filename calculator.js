@@ -51,8 +51,8 @@ function display(num) {
     const displayTextField = document.querySelector('#display p');
     num = num.toString();
     
-    // If number of digits is greater than or equal to 10, display it using scientific notation
-    if (num.length >= 10) {
+    // If number of digits is greater than or equal to 15, display it using scientific notation
+    if (num.length >= 15) {
         displayTextField.textContent = Number(num).toExponential(4);
     } else {
         displayTextField.textContent = num;
