@@ -89,8 +89,8 @@ function handleOperationClick(e) {
 }
 
 function handleEqualClick() {
-    // If no operator has been selected, exit the function
-    if (operator === '') {
+    // If no operator has been selected, or both num1 and num2 aren't populated, exit the function
+    if (operator === '' || (num1 === '' || num2 === '')) {
         return;
     }
     
