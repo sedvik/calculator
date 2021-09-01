@@ -118,6 +118,17 @@ function handleUndo() {
     display(num2);
 }
 
+// addDecimalPlace function - adds a decimal place to num2
+function addDecimalPlace() {
+    // Return from function if num2 already has a decimal
+    if (num2.includes('.')) {
+        return;
+    }
+
+    num2 += '.';
+    display(num2);
+}
+
 // resetState function - resets the initial state of the calculator
 function resetState() {
     num1 = '';
@@ -146,3 +157,6 @@ clearButton.addEventListener('click', resetState);
 
 const undoButton = document.querySelector('#undo');
 undoButton.addEventListener('click', handleUndo);
+
+const decimalButton = document.querySelector('#decimal');
+decimalButton.addEventListener('click', addDecimalPlace);
