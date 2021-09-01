@@ -156,6 +156,12 @@ function addDecimalPlace() {
         return;
     }
 
+    // Reset num2 if a calculated result is currently being displayed
+    if (calculatedResultDisplayed) {
+        num2 = '';
+        calculatedResultDisplayed = false;
+    }
+
     // Add a decimal place and display the number
     num2 += '.';
     display(num2);
