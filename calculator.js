@@ -1,3 +1,8 @@
+// Global variables
+let num1 = '';
+let num2 = '';
+let operator = '';
+
 // Functions for basic arithmetic operations
 function add(a, b) {
     return a + b;
@@ -34,3 +39,23 @@ function operate(operator, a, b) {
     }
     return operation(a, b);
 }
+
+// Helper functions
+function display(num) {
+    document.querySelector('#display p').textContent = num;
+}
+
+// Event Handler Functions
+function handleNumberClick(e) {
+    // Append clicked number (in string format) to num1
+    num1 += e.target.value;
+
+    // Display the new value
+    display(num1);
+}
+
+// Add Event Listeners to buttons
+const numButtons = document.querySelectorAll('.number');
+numButtons.forEach(button => {
+    button.addEventListener('click', handleNumberClick);
+});
